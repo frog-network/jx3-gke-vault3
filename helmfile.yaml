@@ -87,5 +87,9 @@ releases:
   version: 1.0.0
   name: node-http
   namespace: jx-staging
+- chart: dev/preview
+  version: 0.0.56
+  name: preview
+  namespace: jx-production
 templates: {}
 missingFileHandler: ""
