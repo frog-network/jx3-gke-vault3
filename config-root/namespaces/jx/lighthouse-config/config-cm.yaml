@@ -9,6 +9,10 @@ data:
               required_status_checks:
                 contexts:
                 - promotion-build
+            node-http:
+              required_status_checks:
+                contexts:
+                - pr-build
       protect-tested-repos: true
     github:
       LinkURL: null
@@ -23,6 +27,13 @@ data:
         labels:
           aadpodidbinding: tekton-bot
         name: promotion
+      frog-network/node-http:
+      - agent: tekton
+        branches:
+        - master
+        labels:
+          aadpodidbinding: tekton-bot
+        name: release
     presubmits:
       frog-network/jx3-gke-vault3:
       - agent: tekton
@@ -31,6 +42,15 @@ data:
         labels:
           aadpodidbinding: tekton-bot
         name: promotion-build
+        rerun_command: /test this
+        trigger: (?m)^/test( all| this),?(\s+|$)
+      frog-network/node-http:
+      - agent: tekton
+        always_run: true
+        context: pr-build
+        labels:
+          aadpodidbinding: tekton-bot
+        name: pr-build
         rerun_command: /test this
         trigger: (?m)^/test( all| this),?(\s+|$)
     prowjob_namespace: jx
@@ -43,6 +63,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         frog-network/jx3-gke-vault3: merge
+        frog-network/node-http: merge
       queries:
       - labels:
         - approved
@@ -54,6 +75,7 @@ data:
         - needs-rebase
         repos:
         - frog-network/jx3-gke-vault3
+        - frog-network/node-http
       - labels:
         - updatebot
         missingLabels:
@@ -64,6 +86,7 @@ data:
         - needs-rebase
         repos:
         - frog-network/jx3-gke-vault3
+        - frog-network/node-http
       target_url: http://deck-jx.-jx.34.77.24.125.nip.io
 kind: ConfigMap
 metadata:
