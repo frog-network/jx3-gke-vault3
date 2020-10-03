@@ -3,7 +3,7 @@ environments:
   default:
     values:
     - versionStream/src/fake-secrets.yaml.gotmpl
-    - jx-values-secret-infra.yaml
+    - jx-values-jx-staging.yaml
 repositories:
 - name: jenkins-x
   url: https://storage.googleapis.com/chartmuseum.jenkins-x.io
@@ -20,23 +20,9 @@ repositories:
 - name: dev
   url: http://chartmuseum-jx.34.77.24.125.nip.io/
 releases:
-- chart: external-secrets/kubernetes-external-secrets
-  version: 5.2.0
-  name: kubernetes-external-secrets
-  namespace: secret-infra
-  values:
-  - versionStream/charts/external-secrets/kubernetes-external-secrets/values.yaml.gotmpl
-- chart: banzaicloud-stable/vault-operator
-  version: 1.3.0
-  name: vault-operator
-  namespace: secret-infra
-- chart: jx-labs/vault-instance
-  version: 0.0.1
-  name: vault-instance
-  namespace: secret-infra
-- chart: jx-labs/pusher-wave
+- chart: dev/node-http
   version: 1.0.0
-  name: pusher-wave
-  namespace: secret-infra
+  name: node-http
+  namespace: jx-staging
 templates: {}
 missingFileHandler: ""

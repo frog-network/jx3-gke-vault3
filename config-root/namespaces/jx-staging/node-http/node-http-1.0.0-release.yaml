@@ -1,0 +1,66 @@
+# Source: node-http/templates/release.yaml
+apiVersion: jenkins.io/v1
+kind: Release
+metadata:
+  creationTimestamp: "2020-10-03T18:51:00Z"
+  deletionTimestamp: null
+  name: 'node-http-1.0.0'
+  namespace: jx-staging
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+spec:
+  commits:
+    - author:
+        accountReference:
+          - provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: jenkins-x-bot
+      branch: master
+      committer:
+        accountReference:
+          - id: jenkins-x-bot-0
+            provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: jenkins-x-bot
+      message: |
+        release 1.0.0
+      sha: c3d61ff0b7fd6a80f798ee85245c08de81df495b
+    - author:
+        accountReference:
+          - id: jenkins-x-bot-0
+            provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: jenkins-x-bot
+      branch: master
+      committer:
+        accountReference:
+          - id: jenkins-x-bot-0
+            provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: jenkins-x-bot
+      message: |
+        release 1.0.0
+      sha: 237064700cd2e37e787634531bcae6e8ed5300db
+    - author:
+        accountReference:
+          - provider: jenkins.io/git-github-userid
+        email: damien.parbhakar@gmail.com
+        name: frog-network
+      branch: master
+      committer:
+        accountReference:
+          - id: frog-network-0
+            provider: jenkins.io/git-github-userid
+        email: damien.parbhakar@gmail.com
+        name: frog-network
+      message: |
+        Jenkins X build pack
+      sha: 3072a6cb99feb16c7de60b6af9392bb97e030de6
+  gitCloneUrl: https://github.com/frog-network/node-http.git
+  gitHttpUrl: https://github.com/frog-network/node-http
+  gitOwner: frog-network
+  gitRepository: node-http
+  name: 'node-http'
+  releaseNotesURL: https://github.com/frog-network/node-http/releases/tag/v1.0.0
+  version: v1.0.0
+status: {}

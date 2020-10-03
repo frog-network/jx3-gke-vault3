@@ -1,0 +1,94 @@
+jxRequirements:
+  autoUpdate:
+    enabled: false
+    schedule: ""
+  bootConfigURL: https://github.com/jenkins-x/jx3-boot-config
+  buildPacks:
+    buildPackLibrary:
+      gitRef: master
+      gitURL: https://github.com/jenkins-x/jxr-packs-kubernetes.git
+  cluster:
+    clusterName: neokube-test
+    environmentGitOwner: todo
+    gitKind: github
+    gitName: github
+    gitServer: https://github.com
+    gke:
+      projectNumber: "522234612266"
+    namespace: jx
+    project: neokube
+    provider: gke
+    registry: gcr.io
+    vaultName: neokube-test
+    vaultSAName: neokube-test-vt
+    zone: europe-west1
+  environments:
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: dev
+    owner: frog-network
+    repository: jx3-gke-vault3
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: staging
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: production
+  gitops: true
+  ingress:
+    domain: 34.77.24.125.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx-staging.
+    tls:
+      email: ""
+      enabled: false
+      production: true
+  kaniko: true
+  pipelineUser:
+    username: frog-network
+  repository: nexus
+  secretStorage: vault
+  storage:
+    backup:
+      enabled: false
+      url: ""
+    logs:
+      enabled: true
+      url: gs://logs-neokube-test-451602a48e24
+    reports:
+      enabled: true
+      url: gs://reports-neokube-test-451602a48e24
+    repository:
+      enabled: true
+      url: gs://repository-neokube-test-451602a48e24
+  vault:
+    bucket: vault-neokube-test-451602a48e24
+    key: crypto-key-neokube-test-451602a48e24
+    keyring: keyring-neokube-test-451602a48e24
+    name: neokube-test
+    serviceAccount: neokube-test-vt
+  velero:
+    schedule: ""
+    ttl: ""
+  versionStream:
+    ref: master
+    url: https://github.com/jenkins-x/jxr-versions.git
+  webhook: lighthouse
