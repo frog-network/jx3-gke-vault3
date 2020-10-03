@@ -17,6 +17,8 @@ repositories:
   url: https://kubernetes-charts.banzaicloud.com
 - name: jx3
   url: https://storage.googleapis.com/jenkinsxio/charts
+- name: dev
+  url: http://chartmuseum-jx.34.77.24.125.nip.io/
 releases:
 - chart: stable/nginx-ingress
   version: 1.39.1
