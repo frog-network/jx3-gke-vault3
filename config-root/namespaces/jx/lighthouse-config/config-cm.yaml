@@ -64,7 +64,7 @@ data:
         - needs-rebase
         repos:
         - frog-network/jx3-gke-vault3
-      target_url: http://deck-jx.-jx.
+      target_url: http://deck-jx.-jx.34.77.24.125.nip.io
 kind: ConfigMap
 metadata:
   creationTimestamp: null
