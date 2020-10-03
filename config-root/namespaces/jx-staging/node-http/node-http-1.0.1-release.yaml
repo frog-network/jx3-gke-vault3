@@ -2,9 +2,9 @@
 apiVersion: jenkins.io/v1
 kind: Release
 metadata:
-  creationTimestamp: "2020-10-03T18:51:00Z"
+  creationTimestamp: "2020-10-03T20:51:10Z"
   deletionTimestamp: null
-  name: 'node-http-1.0.0'
+  name: 'node-http-1.0.1'
   namespace: jx-staging
   labels:
     gitops.jenkins-x.io/pipeline: 'namespaces'
@@ -12,7 +12,8 @@ spec:
   commits:
     - author:
         accountReference:
-          - provider: jenkins.io/git-github-userid
+          - id: jenkins-x-bot-0
+            provider: jenkins.io/git-github-userid
         email: jenkins-x@googlegroups.com
         name: jenkins-x-bot
       branch: master
@@ -23,8 +24,8 @@ spec:
         email: jenkins-x@googlegroups.com
         name: jenkins-x-bot
       message: |
-        release 1.0.0
-      sha: c3d61ff0b7fd6a80f798ee85245c08de81df495b
+        release 1.0.1
+      sha: cffebaa5c8ae102c0260cc449d9f7e8b32305a25
     - author:
         accountReference:
           - id: jenkins-x-bot-0
@@ -39,28 +40,28 @@ spec:
         email: jenkins-x@googlegroups.com
         name: jenkins-x-bot
       message: |
-        release 1.0.0
-      sha: 237064700cd2e37e787634531bcae6e8ed5300db
+        release 1.0.1
+      sha: 62ba578c040c8042842f15fefa2ae8f0acc9942f
     - author:
         accountReference:
           - provider: jenkins.io/git-github-userid
-        email: damien.parbhakar@gmail.com
-        name: frog-network
+        email: damien.parbhakar@neo9.fr
+        name: Damien Parbhakar
       branch: master
       committer:
         accountReference:
-          - id: frog-network-0
+          - id: damien-parbhakar-0
             provider: jenkins.io/git-github-userid
-        email: damien.parbhakar@gmail.com
-        name: frog-network
+        email: damien.parbhakar@neo9.fr
+        name: Damien Parbhakar
       message: |
-        Jenkins X build pack
-      sha: 3072a6cb99feb16c7de60b6af9392bb97e030de6
+        fix: Adds NodeJs in title
+      sha: 52f4db2900f3ffd10cf3fc6d6d2839dcf1dc2484
   gitCloneUrl: https://github.com/frog-network/node-http.git
   gitHttpUrl: https://github.com/frog-network/node-http
   gitOwner: frog-network
   gitRepository: node-http
   name: 'node-http'
-  releaseNotesURL: https://github.com/frog-network/node-http/releases/tag/v1.0.0
-  version: v1.0.0
+  releaseNotesURL: https://github.com/frog-network/node-http/releases/tag/v1.0.1
+  version: v1.0.1
 status: {}
