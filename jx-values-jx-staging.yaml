@@ -24,13 +24,13 @@ jxRequirements:
     zone: europe-west1
   environments:
   - ingress:
-      domain: ""
+      domain: 34.77.24.125.nip.io
       externalDNS: false
-      namespaceSubDomain: ""
+      namespaceSubDomain: -jx.
       tls:
         email: ""
         enabled: false
-        production: false
+        production: true
     key: dev
     owner: frog-network
     repository: jx3-gke-vault3
