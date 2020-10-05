@@ -19,6 +19,8 @@ repositories:
   url: https://storage.googleapis.com/jenkinsxio/charts
 - name: dev
   url: http://chartmuseum-jx.34.77.24.125.nip.io/
+- name: kubecost
+  url: https://kubecost.github.io/cost-analyzer/
 releases:
 - chart: jenkins-x/jxboot-helmfile-resources
   version: 0.0.310
