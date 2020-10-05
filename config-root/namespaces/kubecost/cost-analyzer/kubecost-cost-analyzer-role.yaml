@@ -1,0 +1,17 @@
+# Source: cost-analyzer/templates/cost-analyzer-cluser-role-template.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: kubecost
+  name: kubecost-cost-analyzer
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - "pods/log"
+    verbs:
+      - get
+      - list
+      - watch

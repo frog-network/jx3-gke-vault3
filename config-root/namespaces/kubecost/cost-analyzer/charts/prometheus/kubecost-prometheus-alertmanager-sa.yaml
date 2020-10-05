@@ -1,0 +1,13 @@
+# Source: cost-analyzer/charts/prometheus/templates/alertmanager-serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    component: "alertmanager"
+    app: prometheus
+    release: kubecost
+    chart: prometheus-11.0.2
+    heritage: Helm
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: kubecost-prometheus-alertmanager
+  namespace: kubecost

@@ -1,0 +1,29 @@
+# Source: cost-analyzer/templates/cost-analyzer-service-template.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: kubecost-cost-analyzer
+  labels:
+    app.kubernetes.io/name: cost-analyzer
+    helm.sh/chart: cost-analyzer-1.66.0
+    app.kubernetes.io/instance: kubecost
+    app.kubernetes.io/managed-by: Helm
+    app: cost-analyzer
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  namespace: kubecost
+spec:
+  selector:
+    app.kubernetes.io/name: cost-analyzer
+    app.kubernetes.io/instance: kubecost
+    app: cost-analyzer
+  type: "ClusterIP"
+  ports:
+    - name: server
+      port: 9001
+      targetPort: 9001
+    - name: model
+      port: 9003
+      targetPort: 9003
+    - name: frontend
+      port: 9090
+      targetPort: 9090

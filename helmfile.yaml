@@ -96,5 +96,7 @@ releases:
 - chart: kubecost/cost-analyzer
   name: kubecost
   namespace: kubecost
+  values:
+  - values/kubecost/values.yaml
 templates: {}
 missingFileHandler: ""

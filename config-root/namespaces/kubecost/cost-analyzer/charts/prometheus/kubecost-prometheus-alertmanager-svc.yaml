@@ -1,0 +1,25 @@
+# Source: cost-analyzer/charts/prometheus/templates/alertmanager-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: "alertmanager"
+    app: prometheus
+    release: kubecost
+    chart: prometheus-11.0.2
+    heritage: Helm
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: kubecost-prometheus-alertmanager
+  namespace: kubecost
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 9093
+  selector:
+    component: "alertmanager"
+    app: prometheus
+    release: kubecost
+  sessionAffinity: None
+  type: "ClusterIP"
