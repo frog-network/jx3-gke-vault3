@@ -1,0 +1,51 @@
+# Source: cost-analyzer/templates/cost-analyzer-checks-template.yaml
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cost-analyzer-checks
+  labels:
+    app.kubernetes.io/name: cost-analyzer
+    helm.sh/chart: cost-analyzer-1.66.0
+    app.kubernetes.io/instance: kubecost
+    app.kubernetes.io/managed-by: Helm
+    app: cost-analyzer
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  namespace: kubecost
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cost-analyzer
+        helm.sh/chart: cost-analyzer-1.66.0
+        app.kubernetes.io/instance: kubecost
+        app.kubernetes.io/managed-by: Helm
+        app: cost-analyzer
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cost-analyzer-checks
+              image: quay.io/kubecost1/checks:prod-1.66.0
+              imagePullPolicy: Always
+              args:
+                - node
+                - ./node/cron.js
+              resources:
+                limits:
+                  cpu: 100m
+                  memory: 200Mi
+                requests:
+                  cpu: 20m
+                  memory: 100Mi
+              env:
+                - name: COST_ANALYZER_SERVER_ENDPOINT
+                  value: kubecost-cost-analyzer.kubecost:9001
+                - name: COST_ANALYZER_MODEL_ENDPOINT
+                  value: kubecost-cost-analyzer.kubecost:9003
+                - name: PROMETHEUS_ALERTMANAGER_ENDPOINT
+                  valueFrom:
+                    configMapKeyRef:
+                      name: kubecost-cost-analyzer
+                      key: prometheus-alertmanager-endpoint
+          restartPolicy: OnFailure

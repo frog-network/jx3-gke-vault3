@@ -3,7 +3,7 @@ environments:
   default:
     values:
     - versionStream/src/fake-secrets.yaml.gotmpl
-    - jx-values-jx-production.yaml
+    - jx-values-kubecost.yaml
 repositories:
 - name: jenkins-x
   url: https://storage.googleapis.com/chartmuseum.jenkins-x.io
@@ -22,9 +22,10 @@ repositories:
 - name: kubecost
   url: https://kubecost.github.io/cost-analyzer/
 releases:
-- chart: dev/node-http
-  version: 1.0.0
-  name: node-http
-  namespace: jx-production
+- chart: kubecost/cost-analyzer
+  name: kubecost
+  namespace: kubecost
+  values:
+  - values/kubecost/values.yaml
 templates: {}
 missingFileHandler: ""

@@ -1,0 +1,19 @@
+# Source: cost-analyzer/charts/prometheus/templates/pushgateway-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    component: "pushgateway"
+    app: prometheus
+    release: kubecost
+    chart: prometheus-11.0.2
+    heritage: Helm
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: kubecost-prometheus-pushgateway
+  namespace: kubecost
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "2Gi"

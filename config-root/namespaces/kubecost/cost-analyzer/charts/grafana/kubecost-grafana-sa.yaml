@@ -1,0 +1,12 @@
+# Source: cost-analyzer/charts/grafana/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: grafana
+    chart: grafana-1.17.2
+    heritage: Helm
+    release: kubecost
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: kubecost-grafana
+  namespace: kubecost

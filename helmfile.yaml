@@ -96,6 +96,8 @@ releases:
 - chart: kubecost/cost-analyzer
   name: kubecost
   namespace: kubecost
+  values:
+  - values/kubecost/values.yaml
 - chart: jx-labs/istio
 - chart: flagger/flagger
 - chart: flagger/grafana
