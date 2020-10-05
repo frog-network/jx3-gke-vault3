@@ -94,6 +94,6 @@ releases:
 - chart: kubecost
   namespace: kubecost
   values:
-  - helm/kubecost/kubectost-values.yaml
+  - helm/kubecost/kubecost-values.yaml
 templates: {}
 missingFileHandler: ""
