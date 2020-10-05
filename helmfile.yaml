@@ -93,7 +93,5 @@ releases:
   namespace: jx-production
 - chart: kubecost
   namespace: kubecost
-  values:
-  - helm/kubecost/kubecost-values.yaml
 templates: {}
 missingFileHandler: ""
