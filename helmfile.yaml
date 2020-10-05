@@ -17,8 +17,8 @@ repositories:
   url: https://kubernetes-charts.banzaicloud.com
 - name: jx3
   url: https://storage.googleapis.com/jenkinsxio/charts
-- name: dev
-  url: http://chartmuseum-jx.34.77.24.125.nip.io/
+# - name: dev
+#   url: http://chartmuseum-jx.34.77.24.125.nip.io/
 - name: kubecost
   url: https://kubecost.github.io/cost-analyzer/
 releases:
