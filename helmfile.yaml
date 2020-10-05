@@ -98,10 +98,10 @@ releases:
   namespace: kubecost
   values:
   - values/kubecost/values.yaml
-- chart: jx-labs/istio
-- chart: flagger/flagger
-- chart: flagger/grafana
-- chart: jx-labs/flagger-metrics
-- chart: stable/kuberhealthy
+# - chart: jx-labs/istio
+# - chart: flagger/flagger
+# - chart: flagger/grafana
+# - chart: jx-labs/flagger-metrics
+# - chart: stable/kuberhealthy
 templates: {}
 missingFileHandler: ""
