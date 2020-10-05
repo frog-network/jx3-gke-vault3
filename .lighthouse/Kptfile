@@ -3,9 +3,9 @@ kind: Kptfile
 metadata:
     name: .lighthouse
 upstream:
-    type: git
-    git:
-        commit: 8c433ccb341770d38f32dc5d420f209fdb3c11bf
-        repo: https://github.com/jenkins-x/jx3-pipeline-catalog
-        directory: /environment/.lighthouse
-        ref: master
+  type: git
+  git:
+    commit: 1159cc5cc021a2a3f40bbe81b21e0a955e150308
+    repo: https://github.com/jenkins-x/jx3-pipeline-catalog
+    directory: /environment/.lighthouse
+    ref: master
