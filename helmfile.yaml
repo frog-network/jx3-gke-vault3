@@ -91,5 +91,9 @@ releases:
   version: 1.0.0
   name: node-http
   namespace: jx-production
+- chart: kubecost
+  namespace: kubecost
+  values:
+  - helm/kubecost/kubectost-values.yaml
 templates: {}
 missingFileHandler: ""
