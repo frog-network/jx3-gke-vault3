@@ -93,7 +93,8 @@ releases:
   version: 1.0.0
   name: node-http
   namespace: jx-production
-- chart: kubecost
+- chart: kubecost/cost-analyzer
+  name: kubecost
   namespace: kubecost
 templates: {}
 missingFileHandler: ""
