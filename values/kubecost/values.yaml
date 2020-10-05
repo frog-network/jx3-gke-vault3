@@ -1,4 +1,4 @@
 kubecostToken: "ZGFtaWVuLnBhcmJoYWthckBuZW85LmZyxm343yadf98"
-global:
-  grafana:
-    enabled: false
+# global:
+#   grafana:
+#     enabled: false
