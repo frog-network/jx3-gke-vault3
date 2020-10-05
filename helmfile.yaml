@@ -43,12 +43,12 @@ releases:
 - chart: jx3/jx-preview
   name: jx-preview
   namespace: jx
-# - chart: stable/nginx-ingress
-#   version: 1.39.1
-#   name: nginx-ingress
-#   namespace: nginx
-#   values:
-#   - versionStream/charts/stable/nginx-ingress/values.yaml.gotmpl
+- chart: stable/nginx-ingress
+  version: 1.39.1
+  name: nginx-ingress
+  namespace: nginx
+  values:
+  - versionStream/charts/stable/nginx-ingress/values.yaml.gotmpl
 - chart: jenkins-x/tekton
   version: 0.0.63
   name: tekton
