@@ -89,10 +89,10 @@ releases:
 #   version: 1.0.2
 #   name: node-http
 #   namespace: jx-staging
-- chart: dev/node-http
-  version: 1.0.0
-  name: node-http
-  namespace: jx-production
+# - chart: dev/node-http
+#   version: 1.0.0
+#   name: node-http
+#   namespace: jx-production
 - chart: kubecost/cost-analyzer
   name: kubecost
   namespace: kubecost
