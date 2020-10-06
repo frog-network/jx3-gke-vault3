@@ -85,13 +85,14 @@ releases:
   version: 1.0.0
   name: pusher-wave
   namespace: secret-infra
-- chart: kubecost/cost-analyzer
-  name: kubecost
-  namespace: kubecost
-  values:
-  - values/kubecost/values.yaml
+# - chart: kubecost/cost-analyzer
+#   name: kubecost
+#   namespace: kubecost
+#   values:
+#   - values/kubecost/values.yaml
 - chart: prometheus-community/kube-prometheus-stack
   # version: 0.38.1
   name: kube-prometheus-stack
+  namespace: monitoring
 templates: {}
 missingFileHandler: ""
