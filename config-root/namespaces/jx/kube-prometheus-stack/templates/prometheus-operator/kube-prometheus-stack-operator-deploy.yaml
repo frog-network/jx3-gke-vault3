@@ -1,0 +1,80 @@
+# Source: kube-prometheus-stack/templates/prometheus-operator/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-prometheus-stack-operator
+  namespace: jx
+  labels:
+    app: kube-prometheus-stack-operator
+    chart: kube-prometheus-stack-9.4.8
+    release: "kube-prometheus-stack"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    wave.pusher.com/update-on-config-change: 'true'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-prometheus-stack-operator
+      release: "kube-prometheus-stack"
+  template:
+    metadata:
+      labels:
+        app: kube-prometheus-stack-operator
+        chart: kube-prometheus-stack-9.4.8
+        release: "kube-prometheus-stack"
+        heritage: "Helm"
+    spec:
+      containers:
+        - name: kube-prometheus-stack
+          image: "quay.io/coreos/prometheus-operator:v0.38.1"
+          imagePullPolicy: "IfNotPresent"
+          args:
+            - --manage-crds=true
+            - --kubelet-service=kube-system/kube-prometheus-stack-kubelet
+            - --logtostderr=true
+            - --localhost=127.0.0.1
+            - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.38.1
+            - --config-reloader-image=docker.io/jimmidyson/configmap-reload:v0.3.0
+            - --config-reloader-cpu=100m
+            - --config-reloader-memory=25Mi
+          ports:
+            - containerPort: 8080
+              name: http
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+        - name: tls-proxy
+          image: squareup/ghostunnel:v1.5.2
+          imagePullPolicy: IfNotPresent
+          args:
+            - server
+            - --listen=:8443
+            - --target=127.0.0.1:8080
+            - --key=cert/key
+            - --cert=cert/cert
+            - --disable-authentication
+          resources: {}
+          volumeMounts:
+            - name: tls-proxy-secret
+              mountPath: /cert
+              readOnly: true
+          ports:
+            - containerPort: 8443
+              name: https
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+      volumes:
+        - name: tls-proxy-secret
+          secret:
+            defaultMode: 420
+            secretName: kube-prometheus-stack-admission
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
+      serviceAccountName: kube-prometheus-stack-operator

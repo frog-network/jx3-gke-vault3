@@ -1,0 +1,13 @@
+# Source: kube-prometheus-stack/templates/alertmanager/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kube-prometheus-stack-alertmanager
+  namespace: jx
+  labels:
+    app: kube-prometheus-stack-alertmanager
+    chart: kube-prometheus-stack-9.4.8
+    release: "kube-prometheus-stack"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+imagePullSecrets: []

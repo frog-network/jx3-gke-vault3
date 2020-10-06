@@ -1,0 +1,23 @@
+# Source: kube-prometheus-stack/templates/prometheus-operator/servicemonitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kube-prometheus-stack-operator
+  namespace: jx
+  labels:
+    app: kube-prometheus-stack-operator
+    chart: kube-prometheus-stack-9.4.8
+    release: "kube-prometheus-stack"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+spec:
+  endpoints:
+    - port: http
+      honorLabels: true
+  selector:
+    matchLabels:
+      app: kube-prometheus-stack-operator
+      release: "kube-prometheus-stack"
+  namespaceSelector:
+    matchNames:
+      - "jx"
