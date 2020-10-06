@@ -25,5 +25,7 @@ releases:
 - chart: prometheus-community/kube-prometheus-stack
   name: kube-prometheus-stack
   namespace: monitoring
+  values:
+  - values/kube-prometheus-stack/values.yaml
 templates: {}
 missingFileHandler: ""
