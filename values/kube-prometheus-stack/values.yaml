@@ -1,0 +1,2 @@
+prometheusOperator.tlsProxy:
+  enabled: false
