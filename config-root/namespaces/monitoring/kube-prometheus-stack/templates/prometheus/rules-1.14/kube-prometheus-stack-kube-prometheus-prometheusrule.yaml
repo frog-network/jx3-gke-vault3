@@ -1,0 +1,44 @@
+# Source: kube-prometheus-stack/templates/prometheus/rules-1.14/prometheus-operator.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kube-prometheus-stack-kube-prometheus
+  namespace: monitoring
+  labels:
+    app: kube-prometheus-stack
+    chart: kube-prometheus-stack-9.4.8
+    release: "kube-prometheus-stack"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+spec:
+  groups:
+    - name: prometheus-operator
+      rules:
+        - alert: PrometheusOperatorListErrors
+          annotations:
+            message: Errors while performing List operations in controller {{$labels.controller}} in {{$labels.namespace}} namespace.
+          expr: (sum by (controller,namespace) (rate(prometheus_operator_list_operations_failed_total{job="kube-prometheus-stack-operator",namespace="monitoring"}[1h])) / sum by (controller,namespace) (rate(prometheus_operator_list_operations_total{job="kube-prometheus-stack-operator",namespace="monitoring"}[1h]))) > 0.4
+          for: 15m
+          labels:
+            severity: warning
+        - alert: PrometheusOperatorWatchErrors
+          annotations:
+            message: Errors while performing Watch operations in controller {{$labels.controller}} in {{$labels.namespace}} namespace.
+          expr: (sum by (controller,namespace) (rate(prometheus_operator_watch_operations_failed_total{job="kube-prometheus-stack-operator",namespace="monitoring"}[1h])) / sum by (controller,namespace) (rate(prometheus_operator_watch_operations_total{job="kube-prometheus-stack-operator",namespace="monitoring"}[1h]))) > 0.4
+          for: 15m
+          labels:
+            severity: warning
+        - alert: PrometheusOperatorReconcileErrors
+          annotations:
+            message: Errors while reconciling {{ $labels.controller }} in {{ $labels.namespace }} Namespace.
+          expr: rate(prometheus_operator_reconcile_errors_total{job="kube-prometheus-stack-operator",namespace="monitoring"}[5m]) > 0.1
+          for: 10m
+          labels:
+            severity: warning
+        - alert: PrometheusOperatorNodeLookupErrors
+          annotations:
+            message: Errors while reconciling Prometheus in {{ $labels.namespace }} Namespace.
+          expr: rate(prometheus_operator_node_address_lookup_errors_total{job="kube-prometheus-stack-operator",namespace="monitoring"}[5m]) > 0.1
+          for: 10m
+          labels:
+            severity: warning

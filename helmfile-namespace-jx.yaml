@@ -61,8 +61,5 @@ releases:
   namespace: jx
   values:
   - versionStream/charts/jenkins-x/chartmuseum/values.yaml.gotmpl
-- chart: prometheus-community/kube-prometheus-stack
-  name: kube-prometheus-stack
-  namespace: jx
 templates: {}
 missingFileHandler: ""
