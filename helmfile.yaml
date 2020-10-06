@@ -91,7 +91,7 @@ releases:
   values:
   - values/kubecost/values.yaml
 - chart: prometheus-community/kube-prometheus-stack
-  version: 0.38.1
+  # version: 0.38.1
   name: kube-prometheus-stack
 templates: {}
 missingFileHandler: ""
