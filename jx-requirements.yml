@@ -1,4 +1,4 @@
-autoUpdate:
+  autoUpdate:
   enabled: false
   schedule: ""
 bootConfigURL: https://github.com/jenkins-x/jx3-boot-config
@@ -23,7 +23,7 @@ cluster:
   zone: europe-west1
 environments:
 - ingress:
-    domain: 34.77.24.125.nip.io
+    domain: 35.233.66.111.nip.io
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
@@ -53,7 +53,7 @@ environments:
   key: production
 gitops: true
 ingress:
-  domain: 34.77.24.125.nip.io
+  domain: 35.233.66.111.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
