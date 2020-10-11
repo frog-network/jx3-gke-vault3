@@ -9,3 +9,4 @@ spec:
     providerKind: github
     repositories:
     - name: node-http
+    - name: python-http
