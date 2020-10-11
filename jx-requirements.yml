@@ -1,4 +1,4 @@
-  autoUpdate:
+autoUpdate:
   enabled: false
   schedule: ""
 bootConfigURL: https://github.com/jenkins-x/jx3-boot-config
