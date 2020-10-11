@@ -33,12 +33,14 @@ data:
       - hold
       - lgtm
       - lifecycle
+      - override
       - size
       - trigger
       - wip
       - heart
       - cat
-      - override
+      - dog
+      - pony
       frog-network/node-http:
       - approve
       - assign
@@ -69,7 +71,7 @@ data:
       trusted_org: todo
     - repos:
       - frog-network/node-http
-      trusted_org: todo
+      trusted_org: frog-network
     welcome:
     - message_template: Welcome
 kind: ConfigMap

@@ -18,4 +18,4 @@ spec:
   url: "https://github.com/frog-network/jx3-gke-vault3.git"
   scheduler:
     kind: Scheduler
-    name: "environment"
+    name: "in-repo"

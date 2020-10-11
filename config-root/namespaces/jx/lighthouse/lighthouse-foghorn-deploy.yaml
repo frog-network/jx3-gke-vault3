@@ -5,13 +5,13 @@ metadata:
   name: lighthouse-foghorn
   labels:
     draft: draft-app
-    chart: "lighthouse-0.0.683"
+    chart: "lighthouse-0.0.843"
     app: lighthouse-foghorn
     gitops.jenkins-x.io/pipeline: 'namespaces'
   namespace: jx
   annotations:
     wave.pusher.com/update-on-config-change: 'true'
-    jenkins-x.io/hash: 'a41ad4ca50b1814be1c099a72bfc99d64f8387546777f893232d7953efce760b'
+    jenkins-x.io/hash: '24f57acc6ff122cf48fad2bb0323b61562e35e64362a16383bae58ddbe78cbba'
 spec:
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ spec:
       serviceAccountName: lighthouse-foghorn
       containers:
         - name: lighthouse-foghorn
-          image: gcr.io/jenkinsxio/lighthouse-foghorn:0.0.683
+          image: gcr.io/jenkinsxio/lighthouse-foghorn:0.0.0-SNAPSHOT-PR-1106-10
           imagePullPolicy: IfNotPresent
           args:
             - "--namespace=jx"
@@ -49,6 +49,8 @@ spec:
               value: "json"
             - name: JX_DEFAULT_IMAGE
               value: "gcr.io/jenkinsxio/builder-maven:2.1.142-761"
+            - name: LIGHTHOUSE_DASHBOARD_TEMPLATE
+              value: "namespaces/{{ .Namespace }}/pipelineruns/{{ .PipelineRun }}"
           resources:
             limits:
               cpu: 100m
