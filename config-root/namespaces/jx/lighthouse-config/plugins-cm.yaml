@@ -10,6 +10,10 @@ data:
       repos:
       - frog-network/node-http
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - frog-network/python-http
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -57,6 +61,22 @@ data:
       - cat
       - dog
       - pony
+      frog-network/python-http:
+      - approve
+      - assign
+      - blunderbuss
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - heart
+      - cat
+      - dog
+      - pony
     requiresig: {}
     sigmention: {}
     size:
@@ -71,6 +91,9 @@ data:
       trusted_org: todo
     - repos:
       - frog-network/node-http
+      trusted_org: frog-network
+    - repos:
+      - frog-network/python-http
       trusted_org: frog-network
     welcome:
     - message_template: Welcome

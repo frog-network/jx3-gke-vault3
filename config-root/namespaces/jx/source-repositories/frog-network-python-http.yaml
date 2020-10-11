@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: frog-network
+    provider: github
+    repository: python-http
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: frog-network-python-http
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/frog-network/python-http.git
+  org: frog-network
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: python-http
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/frog-network/python-http
