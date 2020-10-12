@@ -54,6 +54,7 @@ environments:
 gitops: true
 ingress:
   domain: 35.233.66.111.nip.io
+  ignoreLoadBalancer: true
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
