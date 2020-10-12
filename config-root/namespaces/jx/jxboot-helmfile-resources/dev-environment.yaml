@@ -46,7 +46,7 @@ spec:
         zone: europe-west1
       environments:
       - ingress:
-          domain: 35.233.66.111.nip.io
+          domain: 104.199.18.24.nip.io
           externalDNS: false
           namespaceSubDomain: -jx.
           tls:
@@ -76,7 +76,7 @@ spec:
         key: production
       gitops: true
       ingress:
-        domain: 35.233.66.111.nip.io
+        domain: 104.199.18.24.nip.io
         externalDNS: false
         ignoreLoadBalancer: true
         namespaceSubDomain: -jx.
