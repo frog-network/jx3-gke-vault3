@@ -1071,7 +1071,7 @@ data:
         - frog-network/jx3-gke-vault3
         - frog-network/node-http
         - frog-network/python-http
-      target_url: http://dashboard-jx.34.77.24.125.nip.io
+      target_url: http://dashboard-jx.35.233.66.111.nip.io
 kind: ConfigMap
 metadata:
   creationTimestamp: null

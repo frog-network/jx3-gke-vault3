@@ -46,7 +46,7 @@ spec:
         zone: europe-west1
       environments:
       - ingress:
-          domain: 34.77.24.125.nip.io
+          domain: 35.233.66.111.nip.io
           externalDNS: false
           namespaceSubDomain: -jx.
           tls:
@@ -76,8 +76,9 @@ spec:
         key: production
       gitops: true
       ingress:
-        domain: 34.77.24.125.nip.io
+        domain: 35.233.66.111.nip.io
         externalDNS: false
+        ignoreLoadBalancer: true
         namespaceSubDomain: -jx.
         tls:
           email: ""
@@ -90,21 +91,21 @@ spec:
       secretStorage: vault
       storage:
         backup:
-          enabled: false
-          url: ""
+          enabled: true
+          url: gs://backup-neokube-test-ed6e73e6bd11
         logs:
           enabled: true
-          url: gs://logs-neokube-test-451602a48e24
+          url: gs://logs-neokube-test-ed6e73e6bd11
         reports:
           enabled: true
-          url: gs://reports-neokube-test-451602a48e24
+          url: gs://reports-neokube-test-ed6e73e6bd11
         repository:
           enabled: true
-          url: gs://repository-neokube-test-451602a48e24
+          url: gs://repository-neokube-test-ed6e73e6bd11
       vault:
-        bucket: vault-neokube-test-451602a48e24
-        key: crypto-key-neokube-test-451602a48e24
-        keyring: keyring-neokube-test-451602a48e24
+        bucket: vault-neokube-test-ed6e73e6bd11
+        key: crypto-key-neokube-test-ed6e73e6bd11
+        keyring: keyring-neokube-test-ed6e73e6bd11
         name: neokube-test
         serviceAccount: neokube-test-vt
       velero:
@@ -133,9 +134,9 @@ spec:
     prowConfig: Scheduler
     prowEngine: Tekton
     storageLocations:
-      - bucketUrl: gs://logs-neokube-test-451602a48e24
+      - bucketUrl: gs://logs-neokube-test-ed6e73e6bd11
         classifier: logs
-      - bucketUrl: gs://reports-neokube-test-451602a48e24
+      - bucketUrl: gs://reports-neokube-test-ed6e73e6bd11
         classifier: reports
     useGitOps: true
     versionStreamRef: master

@@ -54,8 +54,8 @@ environments:
 gitops: true
 ingress:
   domain: 35.233.66.111.nip.io
-  ignoreLoadBalancer: true
   externalDNS: false
+  ignoreLoadBalancer: true
   namespaceSubDomain: -jx.
   tls:
     email: ""
@@ -68,21 +68,21 @@ repository: nexus
 secretStorage: vault
 storage:
   backup:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://backup-neokube-test-ed6e73e6bd11
   logs:
     enabled: true
-    url: gs://logs-neokube-test-451602a48e24
+    url: gs://logs-neokube-test-ed6e73e6bd11
   reports:
     enabled: true
-    url: gs://reports-neokube-test-451602a48e24
+    url: gs://reports-neokube-test-ed6e73e6bd11
   repository:
     enabled: true
-    url: gs://repository-neokube-test-451602a48e24
+    url: gs://repository-neokube-test-ed6e73e6bd11
 vault:
-  bucket: vault-neokube-test-451602a48e24
-  key: crypto-key-neokube-test-451602a48e24
-  keyring: keyring-neokube-test-451602a48e24
+  bucket: vault-neokube-test-ed6e73e6bd11
+  key: crypto-key-neokube-test-ed6e73e6bd11
+  keyring: keyring-neokube-test-ed6e73e6bd11
   name: neokube-test
   serviceAccount: neokube-test-vt
 velero:
