@@ -1,0 +1,13 @@
+# Source: kube-prometheus-stack/charts/prometheus-node-exporter/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kps-prometheus-node-exporter
+  namespace: monitoring
+  labels:
+    app: prometheus-node-exporter
+    chart: prometheus-node-exporter-1.11.2
+    release: "kps"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+imagePullSecrets: []

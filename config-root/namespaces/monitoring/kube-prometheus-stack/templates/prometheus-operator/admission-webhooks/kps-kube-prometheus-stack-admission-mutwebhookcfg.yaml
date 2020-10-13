@@ -1,0 +1,30 @@
+# Source: kube-prometheus-stack/templates/prometheus-operator/admission-webhooks/mutatingWebhookConfiguration.yaml
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: kps-kube-prometheus-stack-admission
+  labels:
+    app: kube-prometheus-stack-admission
+    chart: kube-prometheus-stack-10.1.0
+    release: "kps"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  namespace: monitoring
+webhooks:
+  - name: prometheusrulemutate.monitoring.coreos.com
+    failurePolicy: Ignore
+    rules:
+      - apiGroups:
+          - monitoring.coreos.com
+        apiVersions:
+          - "*"
+        resources:
+          - prometheusrules
+        operations:
+          - CREATE
+          - UPDATE
+    clientConfig:
+      service:
+        namespace: monitoring
+        name: kps-kube-prometheus-stack-operator
+        path: /admission-prometheusrules/mutate

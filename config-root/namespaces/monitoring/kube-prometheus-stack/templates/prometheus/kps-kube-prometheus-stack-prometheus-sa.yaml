@@ -1,0 +1,13 @@
+# Source: kube-prometheus-stack/templates/prometheus/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kps-kube-prometheus-stack-prometheus
+  namespace: monitoring
+  labels:
+    app: kube-prometheus-stack-prometheus
+    chart: kube-prometheus-stack-10.1.0
+    release: "kps"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+imagePullSecrets: []

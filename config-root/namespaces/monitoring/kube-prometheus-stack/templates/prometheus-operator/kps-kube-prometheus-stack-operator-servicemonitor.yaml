@@ -1,0 +1,23 @@
+# Source: kube-prometheus-stack/templates/prometheus-operator/servicemonitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kps-kube-prometheus-stack-operator
+  namespace: monitoring
+  labels:
+    app: kube-prometheus-stack-operator
+    chart: kube-prometheus-stack-10.1.0
+    release: "kps"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+spec:
+  endpoints:
+    - port: http
+      honorLabels: true
+  selector:
+    matchLabels:
+      app: kube-prometheus-stack-operator
+      release: "kps"
+  namespaceSelector:
+    matchNames:
+      - "monitoring"
