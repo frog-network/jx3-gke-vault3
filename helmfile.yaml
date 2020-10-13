@@ -1,5 +1,9 @@
 filepath: ""
 environments:
+  # The "default" environment is available and used when `helmfile` is run without `--environment NAME`.
+  #
+  # these values are available to any values.yaml.gotmpl files but they are not passed into
+  # the helm charts directly
   default:
     values:
     - jx-values.yaml
@@ -88,5 +92,7 @@ releases:
   version: 1.0.0
   name: pusher-wave
   namespace: secret-infra
+- chart: jx3/jx-pipelines-visualizer
 templates: {}
 missingFileHandler: ""
+

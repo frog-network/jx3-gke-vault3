@@ -7,6 +7,7 @@ buildPacks:
     gitRef: master
     gitURL: https://github.com/jenkins-x/jx3-pipeline-catalog.git
 cluster:
+<<<<<<< HEAD
   clusterName: neokube-test
   environmentGitOwner: todo
   gitKind: github

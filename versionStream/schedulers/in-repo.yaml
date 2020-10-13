@@ -76,4 +76,4 @@ spec:
     only_org_members: false
     trusted_org: todo
   welcome:
-    - message_template: Welcome
+  - message_template: Welcome
