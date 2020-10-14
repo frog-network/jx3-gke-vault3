@@ -94,8 +94,8 @@ releases:
   values:
   - versionStream/charts/jx3/jx-pipelines-visualizer/values.yaml.gotmpl
 - chart: prometheus-community/kube-prometheus-stack
+  installed: false
   name: kps
   namespace: monitoring
-  installed: false
 templates: {}
 missingFileHandler: ""
