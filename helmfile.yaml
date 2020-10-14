@@ -96,5 +96,6 @@ releases:
 - chart: prometheus-community/kube-prometheus-stack
   name: kps
   namespace: monitoring
+  installed: false
 templates: {}
 missingFileHandler: ""
