@@ -1,0 +1,66 @@
+# Source: node-http-2/templates/release.yaml
+apiVersion: jenkins.io/v1
+kind: Release
+metadata:
+  creationTimestamp: "2020-10-15T14:59:10Z"
+  deletionTimestamp: null
+  name: 'node-http-2-1.0.0'
+  namespace: jx-staging
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+spec:
+  commits:
+    - author:
+        accountReference:
+          - provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: frog-network
+      branch: master
+      committer:
+        accountReference:
+          - id: frog-network-0
+            provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: frog-network
+      message: |
+        release 1.0.0
+      sha: 7dae1ba43b78bfc390b649ff4108b554d34e1a37
+    - author:
+        accountReference:
+          - id: frog-network-0
+            provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: frog-network
+      branch: master
+      committer:
+        accountReference:
+          - id: frog-network-0
+            provider: jenkins.io/git-github-userid
+        email: jenkins-x@googlegroups.com
+        name: frog-network
+      message: |
+        release 1.0.0
+      sha: 1b61fb04cfb9ed5bb8636c3360f56eeb8b464bbd
+    - author:
+        accountReference:
+          - provider: jenkins.io/git-github-userid
+        email: damien.parbhakar@neo9.fr
+        name: Damien Parbhakar
+      branch: master
+      committer:
+        accountReference:
+          - id: damien-parbhakar-0
+            provider: jenkins.io/git-github-userid
+        email: damien.parbhakar@neo9.fr
+        name: Damien Parbhakar
+      message: |
+        abc
+      sha: 41ec004ea45cc241f61f16945b7a3ab6ad451bb0
+  gitCloneUrl: https://github.com/frog-network/node-http-2.git
+  gitHttpUrl: https://github.com/frog-network/node-http-2
+  gitOwner: frog-network
+  gitRepository: node-http-2
+  name: 'node-http-2'
+  releaseNotesURL: https://github.com/frog-network/node-http-2/releases/tag/v1.0.0
+  version: v1.0.0
+status: {}
