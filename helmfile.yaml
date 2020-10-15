@@ -23,6 +23,8 @@ repositories:
   url: https://prometheus-community.github.io/helm-charts
 - name: cdf
   url: https://cdfoundation.github.io/tekton-helm-chart
+- name: fluxcd
+  url: https://charts.fluxcd.io
 releases:
 - chart: jenkins-x/jxboot-helmfile-resources
   version: 1.0.6
@@ -97,5 +99,11 @@ releases:
   installed: false
   name: kps
   namespace: monitoring
+- chart: fluxcd/flux
+  installed: false
+  name: flux
+  namespace: flux
+  values:
+  - values/flux/values.yaml
 templates: {}
 missingFileHandler: ""

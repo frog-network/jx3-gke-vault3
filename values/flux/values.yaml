@@ -1,0 +1,5 @@
+git:
+  url: git@github.com:frog-network/jx.git
+  email: frog-network@users.noreply.github.com
+  user: frog-network
+  path: k8s,helm
