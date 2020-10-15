@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: frog-network
+    provider: github
+    repository: node-http-2
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: frog-network-node-http-2
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/frog-network/node-http-2.git
+  org: frog-network
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: node-http-2
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/frog-network/node-http-2

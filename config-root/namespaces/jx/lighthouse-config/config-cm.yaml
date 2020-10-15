@@ -8,6 +8,7 @@ data:
     in_repo_config:
       enabled:
         frog-network/jx3-gke-vault3: true
+        frog-network/node-http-2: true
     plank: {}
     pod_namespace: jx
     prowjob_namespace: jx
@@ -20,6 +21,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         frog-network/jx3-gke-vault3: merge
+        frog-network/node-http-2: merge
       queries:
       - labels:
         - approved
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - frog-network/jx3-gke-vault3
+        - frog-network/node-http-2
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - frog-network/jx3-gke-vault3
+        - frog-network/node-http-2
       target_url: http://dashboard-jx.104.199.18.24.nip.io
 kind: ConfigMap
 metadata:
