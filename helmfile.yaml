@@ -25,8 +25,6 @@ repositories:
   url: https://cdfoundation.github.io/tekton-helm-chart
 - name: fluxcd
   url: https://charts.fluxcd.io
-# - name: dev
-#   url: http://chartmuseum-jx.104.199.18.24.nip.io/
 releases:
 - chart: jenkins-x/jxboot-helmfile-resources
   version: 1.0.6
@@ -107,9 +105,5 @@ releases:
   namespace: flux
   values:
   - values/flux/values.yaml
-# - chart: dev/node-http-2
-#   version: 1.0.0
-#   name: node-http-2
-#   namespace: jx-staging
 templates: {}
 missingFileHandler: ""

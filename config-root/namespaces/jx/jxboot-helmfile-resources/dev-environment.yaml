@@ -92,20 +92,20 @@ spec:
       storage:
         backup:
           enabled: true
-          url: gs://backup-neokube-test-ed6e73e6bd11
+          url: gs://backup-neokube-test-a665eb7d84b8
         logs:
           enabled: true
-          url: gs://logs-neokube-test-ed6e73e6bd11
+          url: gs://logs-neokube-test-a665eb7d84b8
         reports:
           enabled: true
-          url: gs://reports-neokube-test-ed6e73e6bd11
+          url: gs://reports-neokube-test-a665eb7d84b8
         repository:
           enabled: true
-          url: gs://repository-neokube-test-ed6e73e6bd11
+          url: gs://repository-neokube-test-a665eb7d84b8
       vault:
-        bucket: vault-neokube-test-ed6e73e6bd11
-        key: crypto-key-neokube-test-ed6e73e6bd11
-        keyring: keyring-neokube-test-ed6e73e6bd11
+        bucket: vault-neokube-test-a665eb7d84b8
+        key: crypto-key-neokube-test-a665eb7d84b8
+        keyring: keyring-neokube-test-a665eb7d84b8
         name: neokube-test
         serviceAccount: neokube-test-vt
       velero:
@@ -134,9 +134,9 @@ spec:
     prowConfig: Scheduler
     prowEngine: Tekton
     storageLocations:
-      - bucketUrl: gs://logs-neokube-test-ed6e73e6bd11
+      - bucketUrl: gs://logs-neokube-test-a665eb7d84b8
         classifier: logs
-      - bucketUrl: gs://reports-neokube-test-ed6e73e6bd11
+      - bucketUrl: gs://reports-neokube-test-a665eb7d84b8
         classifier: reports
     useGitOps: true
     versionStreamRef: master
